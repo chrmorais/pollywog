@@ -46,6 +46,14 @@ class RegexOperation(object):
         return self._regex.sub(replacement, self._search)
     __truediv__ = __div__
 
+    def __rshift__(self, ref):
+        if isinstance(ref, dict):
+            ref.update(self.search(True))
+        elif isinstance(ref, list):
+            ref.extend(self.search())
+        else:
+            raise TypeError('Unsupported type, must be list or dict.')
+
     def __iter__(self):
         return self.iter_tuples()
 

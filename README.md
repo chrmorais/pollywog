@@ -27,7 +27,24 @@ else:
 
 #### Extracting data from a match
 
-By default, the `search()` method will return a `tuple`.
+The *rshift* `>>` operator will populate a dictionary or list with search results:
+
+```python
+
+# Store search results in the `results` dictionary.
+result = {}
+R/url_re/'http://charlesleifer.com/blog/'>>result
+print result
+# {'scheme': 'http://', 'host': 'charlesleifer.com', 'path': '/blog/'}
+
+# Store search results in the `url_parts` list.
+url_parts = []
+R/url_re/'https://github.com/coleifer/'>>url_parts
+print url_parts
+# ['https://', 'github.com', '/coleifer/']
+```
+
+For less magic, you can also use the `search()` method. By default, the `search()` method will return a `tuple`.
 
 ```python
 

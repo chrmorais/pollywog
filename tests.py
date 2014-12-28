@@ -71,6 +71,19 @@ class PollywogTestCase(unittest.TestCase):
         self.assertEqual(result.search(), ('foo', '3'))
         self.assertIsNone((self.simple/'fooxx').search())
 
+    def test_search_byref(self):
+        result = {}
+        R/self.url_re/'http://charlesleifer.com/blog/'>>result
+        self.assertEqual(result, {
+            'scheme': 'http://',
+            'host': 'charlesleifer.com',
+            'path': '/blog/',
+        })
+
+        result = []
+        R/self.url_re/'http://charlesleifer.com/blog/'>>result
+        self.assertEqual(result, ['http://', 'charlesleifer.com', '/blog/'])
+
 
 if __name__ == '__main__':
     unittest.main(argv=sys.argv)
