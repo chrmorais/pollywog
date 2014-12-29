@@ -135,3 +135,13 @@ rgx = '[\s\W]+'
 print R/rgx-'hey! "testing 123"'
 ['hey', 'testing', '123', '']
 ```
+
+For slightly less magic, you can also use the `split()` method:
+
+```python
+
+rgx = '[\s\W]+'
+
+print (R/rgx/'hey! "testing 123"').split()
+['hey', 'testing', '123', '']
+```
