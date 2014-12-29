@@ -4,7 +4,7 @@ Syntactic sugar for working with regular expressions in Python.
 
 __author__ = 'Charles Leifer'
 __license__ = 'MIT'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 import re
 
