@@ -1,4 +1,4 @@
-## Pollywog
+![](http://media.charlesleifer.com/blog/photos/p1419822415.19.png)
 
 Syntactic sugar for working with regular expressions in Python. Based on a [blog post](http://charlesleifer.com/blog/playing-with-python-magic-methods-to-make-a-nicer-regex-api/).
 
