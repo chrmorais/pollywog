@@ -2,7 +2,7 @@
 
 Syntactic sugar for working with regular expressions in Python. Based on a [blog post](http://charlesleifer.com/blog/playing-with-python-magic-methods-to-make-a-nicer-regex-api/).
 
-### Examples
+### Usage
 
 In the following examples we will use these regular expressions to capture URLs:
 
@@ -121,4 +121,17 @@ replacement = r'\1.\2.\3'
 
 print R/phone_re/'(555) 123-4567'/replacement
 # Prints: 555.123.4567
+```
+
+#### Splitting strings
+
+To split strings, use the subtraction operator:
+
+```python
+
+# Split on whitespace and non-alphanumeric.
+rgx = '[\s\W]+'
+
+print R/rgx-'hey! "testing 123"'
+['hey', 'testing', '123', '']
 ```

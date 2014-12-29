@@ -23,6 +23,9 @@ class R(_R('R', (object,), {})):
         return RegexOperation(self._regex, s)
     __truediv__ = __div__
 
+    def __sub__(self, rhs):
+        return RegexOperation(self._regex, rhs).split()
+
 
 class RegexOperation(object):
     def __init__(self, regex, search):
@@ -41,6 +44,9 @@ class RegexOperation(object):
 
     def __len__(self):
         return self.search() is not None
+
+    def split(self, max_split=0):
+        return self._regex.split(self._search, max_split)
 
     def __div__(self, replacement):
         return self._regex.sub(replacement, self._search)

@@ -84,6 +84,9 @@ class PollywogTestCase(unittest.TestCase):
         R/self.url_re/'http://charlesleifer.com/blog/'>>result
         self.assertEqual(result, ['http://', 'charlesleifer.com', '/blog/'])
 
+    def test_split(self):
+        self.assertEqual(R/'\d+'-'h39x fo0o', ['h', 'x fo', 'o'])
+
 
 if __name__ == '__main__':
     unittest.main(argv=sys.argv)
