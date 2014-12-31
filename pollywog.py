@@ -6,6 +6,7 @@ __author__ = 'Charles Leifer'
 __license__ = 'MIT'
 __version__ = '0.1.1'
 
+import collections
 import re
 
 
@@ -53,9 +54,9 @@ class RegexOperation(object):
     __truediv__ = __div__
 
     def __rshift__(self, ref):
-        if isinstance(ref, dict):
+        if isinstance(ref, collections.MutableMapping):
             ref.update(self.search(True))
-        elif isinstance(ref, list):
+        elif isinstance(ref, collections.MutableSequence):
             ref.extend(self.search())
         else:
             raise TypeError('Unsupported type, must be list or dict.')
